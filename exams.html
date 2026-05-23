@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam Repository | Free Exam Preparation</title>
+  <meta name="description" content="Browse all free exam resources — CBSE Class 10, CBSE Class 12, SSC CGL, NEET, and JEE. Organised by board and stream for easy navigation." />
+
+  <!-- Tailwind CSS via Play CDN — required on every page -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Playfair Display (headings) + Nunito (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body         { font-family: 'Nunito', sans-serif; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .sticky-header { position: sticky; top: 0; z-index: 50; }
+
+    /* ─── Resource row hover ─────────────────────────────────── */
+    .resource-row { transition: background 0.15s ease; }
+    .resource-row:hover { background: #f0fdfa; }
+
+    /* ─── Section anchor offset (so sticky header doesn't cover IDs) */
+    [id] { scroll-margin-top: 80px; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-700 antialiased">
+
+  <!-- ════════════════════════════════════════════════════════════
+       HEADER — identical across all pages for consistency
+  ════════════════════════════════════════════════════════════ -->
+  <header class="sticky-header bg-slate-900 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+
+      <a href="index.html" class="flex items-center gap-3 group">
+        <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-500 text-white text-lg font-bold select-none">F</span>
+        <span class="text-white font-display text-lg leading-tight">
+          Free<span class="text-teal-400">Exam</span>Prep
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-300">
+        <a href="index.html"          class="hover:text-teal-400 transition-colors">Home</a>
+        <a href="exams.html"          class="text-teal-400">Exam Repository</a>
+        <a href="ssc-mock-demo.html"  class="hover:text-teal-400 transition-colors">Mock Tests</a>
+      </nav>
+
+      <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-teal-300 bg-teal-900/50 border border-teal-700 rounded-full px-3 py-1">
+        ✓ 100% Free Resources
+      </span>
+
+      <button class="md:hidden text-slate-300 hover:text-white focus:outline-none" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <!-- /HEADER -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PAGE HERO — compact banner for inner pages
+  ════════════════════════════════════════════════════════════ -->
+  <section class="bg-slate-900 py-14 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-3xl mx-auto">
+      <span class="inline-block text-xs font-bold tracking-widest uppercase text-teal-300 bg-teal-900/60 border border-teal-700 rounded-full px-4 py-1.5 mb-5">
+        Full Resource Library
+      </span>
+      <h1 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Exam Repository</h1>
+      <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+        Every resource is organised by board and stream. Click any link to study online, or download the <strong class="text-white">₹49 PDF bundle</strong> for offline access.
+      </p>
+    </div>
+  </section>
+  <!-- /PAGE HERO -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       QUICK JUMP NAV — in-page anchor links
+  ════════════════════════════════════════════════════════════ -->
+  <div class="bg-white border-b border-slate-100 sticky top-16 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex gap-1 overflow-x-auto py-3 text-sm font-semibold text-slate-500 whitespace-nowrap">
+        <a href="#class10"     class="px-4 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-700 transition-colors">🏫 Class 10 CBSE</a>
+        <a href="#class12"     class="px-4 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-700 transition-colors">🎓 Class 12 CBSE</a>
+        <a href="#ssc"         class="px-4 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-700 transition-colors">📋 SSC CGL / CHSL</a>
+        <a href="#neet"        class="px-4 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-700 transition-colors">🔬 NEET UG</a>
+        <a href="#jee"         class="px-4 py-2 rounded-lg hover:bg-slate-50 hover:text-teal-700 transition-colors">⚙️ JEE Main &amp; Advanced</a>
+      </nav>
+    </div>
+  </div>
+  <!-- /QUICK JUMP NAV -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       MAIN CONTENT AREA
+  ════════════════════════════════════════════════════════════ -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+
+
+    <!-- ──────────────────────────────────────────────────────────
+         SECTION 1: CBSE CLASS 10
+    ────────────────────────────────────────────────────────── -->
+    <section id="class10">
+
+      <!-- Section heading -->
+      <div class="flex items-center gap-4 mb-8">
+        <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-100 text-2xl">🏫</span>
+        <div>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900">CBSE Class 10 Board Prep</h2>
+          <p class="text-slate-500 text-sm mt-0.5">Previous year papers, sample papers &amp; concept practice — all subjects</p>
+        </div>
+      </div>
+
+      <!-- Subject tabs as coloured labels -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- Mathematics -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+          <div class="flex items-center gap-3 px-6 py-4 bg-indigo-50 border-b border-indigo-100">
+            <span class="text-xl">📐</span>
+            <h3 class="font-bold text-indigo-900 text-base">Mathematics</h3>
+            <span class="ml-auto text-xs font-semibold bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-full">6 resources</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-xs text-slate-400 uppercase tracking-wide">
+                <th class="text-left px-6 py-3 font-semibold">Resource</th>
+                <th class="text-left px-6 py-3 font-semibold">Type</th>
+                <th class="px-6 py-3"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-50">
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">CBSE Class 10 Maths — 2024 Board Paper</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">CBSE Class 10 Maths — 2023 Board Paper</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Maths Basic vs Standard — Full Mock Test</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-violet-50 text-violet-700 px-2 py-0.5 rounded">Mock Test</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Real Numbers &amp; Polynomials — Chapter Set</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Trigonometry &amp; Geometry — Practice Set</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Statistics &amp; Probability — Revision Set</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Science -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+          <div class="flex items-center gap-3 px-6 py-4 bg-teal-50 border-b border-teal-100">
+            <span class="text-xl">🔬</span>
+            <h3 class="font-bold text-teal-900 text-base">Science</h3>
+            <span class="ml-auto text-xs font-semibold bg-teal-100 text-teal-700 px-2.5 py-1 rounded-full">5 resources</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-xs text-slate-400 uppercase tracking-wide">
+                <th class="text-left px-6 py-3 font-semibold">Resource</th>
+                <th class="text-left px-6 py-3 font-semibold">Type</th>
+                <th class="px-6 py-3"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-50">
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">CBSE Class 10 Science — 2024 Board Paper</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Physics — Light &amp; Electricity Mock Set</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-violet-50 text-violet-700 px-2 py-0.5 rounded">Mock Test</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Chemistry — Chemical Reactions Practice</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Biology — Life Processes &amp; Heredity Set</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Full Science Mock Test — 80 Marks Paper</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-violet-50 text-violet-700 px-2 py-0.5 rounded">Mock Test</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Social Science -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+          <div class="flex items-center gap-3 px-6 py-4 bg-amber-50 border-b border-amber-100">
+            <span class="text-xl">🌏</span>
+            <h3 class="font-bold text-amber-900 text-base">Social Science</h3>
+            <span class="ml-auto text-xs font-semibold bg-amber-100 text-amber-700 px-2.5 py-1 rounded-full">4 resources</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-xs text-slate-400 uppercase tracking-wide">
+                <th class="text-left px-6 py-3 font-semibold">Resource</th>
+                <th class="text-left px-6 py-3 font-semibold">Type</th>
+                <th class="px-6 py-3"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-50">
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Social Science — 2024 Board Paper</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">History — Nationalism &amp; World Wars Practice</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Geography — Resources &amp; Development Set</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Political Science &amp; Economics — Full Mock</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-violet-50 text-violet-700 px-2 py-0.5 rounded">Mock Test</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- English -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+          <div class="flex items-center gap-3 px-6 py-4 bg-slate-100 border-b border-slate-200">
+            <span class="text-xl">📝</span>
+            <h3 class="font-bold text-slate-800 text-base">English Language &amp; Literature</h3>
+            <span class="ml-auto text-xs font-semibold bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full">4 resources</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-xs text-slate-400 uppercase tracking-wide">
+                <th class="text-left px-6 py-3 font-semibold">Resource</th>
+                <th class="text-left px-6 py-3 font-semibold">Type</th>
+                <th class="px-6 py-3"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-50">
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">English — 2024 &amp; 2023 Board Papers</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Reading Comprehension — 10 Passage Practice</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Grammar — Editing, Gap-Fill &amp; Jumbled Sentences</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Writing Section — Letters, Notices &amp; Articles</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-violet-50 text-violet-700 px-2 py-0.5 rounded">Writing Guide</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+    <!-- /CLASS 10 -->
+
+
+    <!-- ──────────────────────────────────────────────────────────
+         SECTION 2: CBSE CLASS 12
+    ────────────────────────────────────────────────────────── -->
+    <section id="class12">
+
+      <div class="flex items-center gap-4 mb-8">
+        <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-teal-100 text-2xl">🎓</span>
+        <div>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900">CBSE Class 12 Board Prep</h2>
+          <p class="text-slate-500 text-sm mt-0.5">Science, Commerce &amp; Humanities — previous years, sample papers, and full mocks</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- Physics -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+          <div class="flex items-center gap-3 px-6 py-4 bg-blue-50 border-b border-blue-100">
+            <span class="text-xl">⚡</span>
+            <h3 class="font-bold text-blue-900 text-base">Physics</h3>
+            <span class="ml-auto text-xs font-semibold bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full">5 resources</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-xs text-slate-400 uppercase tracking-wide">
+                <th class="text-left px-6 py-3 font-semibold">Resource</th>
+                <th class="text-left px-6 py-3 font-semibold">Type</th>
+                <th class="px-6 py-3"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-50">
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Physics Board Paper 2024 — Set 1</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Electrostatics &amp; Current Electricity Practice</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Optics &amp; Modern Physics — Set A &amp; B</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Full Physics Mock — 70 Marks (3 hrs)</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-violet-50 text-violet-700 px-2 py-0.5 rounded">Mock Test</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Chemistry -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+          <div class="flex items-center gap-3 px-6 py-4 bg-green-50 border-b border-green-100">
+            <span class="text-xl">🧪</span>
+            <h3 class="font-bold text-green-900 text-base">Chemistry</h3>
+            <span class="ml-auto text-xs font-semibold bg-green-100 text-green-700 px-2.5 py-1 rounded-full">4 resources</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-xs text-slate-400 uppercase tracking-wide">
+                <th class="text-left px-6 py-3 font-semibold">Resource</th>
+                <th class="text-left px-6 py-3 font-semibold">Type</th>
+                <th class="px-6 py-3"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-50">
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Chemistry Board Paper 2024</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Organic Chemistry — Named Reactions Set</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Inorganic Chemistry — p-Block &amp; d-Block</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Accountancy (Commerce stream) -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+          <div class="flex items-center gap-3 px-6 py-4 bg-orange-50 border-b border-orange-100">
+            <span class="text-xl">📊</span>
+            <h3 class="font-bold text-orange-900 text-base">Accountancy (Commerce Stream)</h3>
+            <span class="ml-auto text-xs font-semibold bg-orange-100 text-orange-700 px-2.5 py-1 rounded-full">4 resources</span>
+          </div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-50 text-xs text-slate-400 uppercase tracking-wide">
+                <th class="text-left px-6 py-3 font-semibold">Resource</th>
+                <th class="text-left px-6 py-3 font-semibold">Type</th>
+                <th class="px-6 py-3"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-50">
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Accountancy Board Paper 2024</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Partnership Accounts — Full Practice Set</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Company Accounts &amp; Cash Flow Statements</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+              <tr class="resource-row">
+                <td class="px-6 py-4 font-medium text-slate-800">Full Accountancy Mock — 80 Marks</td>
+                <td class="px-6 py-4"><span class="text-xs font-semibold bg-violet-50 text-violet-700 px-2 py-0.5 rounded">Mock Test</span></td>
+                <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+    <!-- /CLASS 12 -->
+
+
+    <!-- ──────────────────────────────────────────────────────────
+         SECTION 3: SSC CGL / CHSL
+    ────────────────────────────────────────────────────────── -->
+    <section id="ssc">
+
+      <div class="flex items-center gap-4 mb-8">
+        <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-amber-100 text-2xl">📋</span>
+        <div>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900">SSC CGL &amp; SSC CHSL</h2>
+          <p class="text-slate-500 text-sm mt-0.5">Quantitative Aptitude, Reasoning, English, and GK — Tier I &amp; Tier II</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+        <div class="flex items-center gap-3 px-6 py-4 bg-amber-50 border-b border-amber-100 flex-wrap gap-y-2">
+          <span class="text-xl">🏛️</span>
+          <h3 class="font-bold text-amber-900 text-base">SSC CGL — All Sections</h3>
+          <!-- Legend -->
+          <div class="ml-auto flex gap-3 text-xs flex-wrap">
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-teal-200 inline-block"></span> Previous Year</span>
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-violet-200 inline-block"></span> Mock Test</span>
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-amber-200 inline-block"></span> Topic Practice</span>
+          </div>
+        </div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-slate-50 text-xs text-slate-400 uppercase tracking-wide">
+              <th class="text-left px-6 py-3 font-semibold">Resource</th>
+              <th class="text-left px-6 py-3 font-semibold hidden sm:table-cell">Section</th>
+              <th class="text-left px-6 py-3 font-semibold">Type</th>
+              <th class="px-6 py-3"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-50">
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">SSC CGL Tier I — 2023 Paper (All shifts)</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Full Paper</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">Quantitative Aptitude — 50 Questions Set</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Quant</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Topic Practice</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">Reasoning — Analogy, Series &amp; Coding-Decoding</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Reasoning</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Topic Practice</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">English — Cloze Test, Spotting Errors &amp; RC</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">English</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Topic Practice</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">General Awareness — Current Affairs Jan–Jun 2024</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">GK / GS</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Topic Practice</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">SSC CGL Full Tier I Mock — 100 Q in 60 mins</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Full Mock</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-violet-50 text-violet-700 px-2 py-0.5 rounded">Mock Test</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- /SSC -->
+
+
+    <!-- ──────────────────────────────────────────────────────────
+         SECTION 4: NEET
+    ────────────────────────────────────────────────────────── -->
+    <section id="neet">
+
+      <div class="flex items-center gap-4 mb-8">
+        <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-rose-100 text-2xl">🔬</span>
+        <div>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900">NEET UG Preparation</h2>
+          <p class="text-slate-500 text-sm mt-0.5">Physics, Chemistry, and Biology — chapter-wise and full-length mocks</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+        <div class="flex items-center gap-3 px-6 py-4 bg-rose-50 border-b border-rose-100">
+          <span class="text-xl">🩺</span>
+          <h3 class="font-bold text-rose-900 text-base">NEET UG — All Sections</h3>
+        </div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-slate-50 text-xs text-slate-400 uppercase tracking-wide">
+              <th class="text-left px-6 py-3 font-semibold">Resource</th>
+              <th class="text-left px-6 py-3 font-semibold hidden sm:table-cell">Subject</th>
+              <th class="text-left px-6 py-3 font-semibold">Type</th>
+              <th class="px-6 py-3"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-50">
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">NEET 2024 Official Paper — Full Set</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">All</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">Biology — Cell Biology &amp; Genetics Practice</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Biology</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">Physics — Mechanics &amp; Thermodynamics Set</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Physics</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">Chemistry — Organic &amp; Inorganic NEET Set</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Chemistry</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">Full NEET Mock — 200 Q in 200 mins</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Full Paper</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-violet-50 text-violet-700 px-2 py-0.5 rounded">Mock Test</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- /NEET -->
+
+
+    <!-- ──────────────────────────────────────────────────────────
+         SECTION 5: JEE
+    ────────────────────────────────────────────────────────── -->
+    <section id="jee">
+
+      <div class="flex items-center gap-4 mb-8">
+        <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-violet-100 text-2xl">⚙️</span>
+        <div>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900">JEE Main &amp; Advanced</h2>
+          <p class="text-slate-500 text-sm mt-0.5">Physics, Chemistry, and Mathematics — JEE Main and Advanced level practice</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+        <div class="flex items-center gap-3 px-6 py-4 bg-violet-50 border-b border-violet-100">
+          <span class="text-xl">🔩</span>
+          <h3 class="font-bold text-violet-900 text-base">JEE Main &amp; Advanced — All Sections</h3>
+        </div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-slate-50 text-xs text-slate-400 uppercase tracking-wide">
+              <th class="text-left px-6 py-3 font-semibold">Resource</th>
+              <th class="text-left px-6 py-3 font-semibold hidden sm:table-cell">Subject</th>
+              <th class="text-left px-6 py-3 font-semibold">Type</th>
+              <th class="px-6 py-3"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-50">
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">JEE Main 2024 — Jan &amp; Apr Sessions (Both shifts)</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">All</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-teal-50 text-teal-700 px-2 py-0.5 rounded">Previous Year</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">Mathematics — Calculus &amp; Algebra Deep Practice</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Maths</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">Physics — Mechanics, Waves &amp; Electrodynamics</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Physics</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Chapter Practice</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+            <tr class="resource-row">
+              <td class="px-6 py-4 font-medium text-slate-800">Full JEE Main Mock — 90 Q, 300 Marks, 3 hrs</td>
+              <td class="px-6 py-4 text-slate-400 hidden sm:table-cell">Full Paper</td>
+              <td class="px-6 py-4"><span class="text-xs font-semibold bg-violet-50 text-violet-700 px-2 py-0.5 rounded">Mock Test</span></td>
+              <td class="px-6 py-4 text-right"><a href="ssc-mock-demo.html" class="text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-lg transition-colors">View Mock</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- /JEE -->
+
+
+    <!-- ──────────────────────────────────────────────────────────
+         DOWNLOAD BUNDLE CTA (inline, compact)
+    ────────────────────────────────────────────────────────── -->
+    <div class="bg-slate-900 rounded-2xl p-10 text-center">
+      <h2 class="font-display text-2xl font-bold text-white mb-3">Want Everything Offline?</h2>
+      <p class="text-slate-400 max-w-xl mx-auto mb-6">Get the entire library as a neatly compiled, printer-friendly PDF bundle for a one-time ₹49. Supports our hosting costs.</p>
+      <a href="#" class="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold text-base px-10 py-4 rounded-xl shadow-lg transition-all duration-200">
+        📥 Download Master PDF Bundle — ₹49
+      </a>
+    </div>
+
+  </main>
+  <!-- /MAIN CONTENT -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       FOOTER — identical across all pages
+  ════════════════════════════════════════════════════════════ -->
+  <footer class="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div>
+          <a href="index.html" class="flex items-center gap-3 mb-4">
+            <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-500 text-white text-lg font-bold">F</span>
+            <span class="text-white font-display text-lg">Free<span class="text-teal-400">Exam</span>Prep</span>
+          </a>
+          <p class="text-sm leading-relaxed">Free, high-quality exam resources for every student in India. No signup. No paywall. Just learning.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html"          class="hover:text-teal-400 transition-colors">Home</a></li>
+            <li><a href="exams.html"          class="hover:text-teal-400 transition-colors">Exam Repository</a></li>
+            <li><a href="ssc-mock-demo.html"  class="hover:text-teal-400 transition-colors">SSC Mock Test Demo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Exams Covered</h4>
+          <ul class="space-y-2 text-sm">
+            <li>CBSE Class 10 Board</li>
+            <li>CBSE Class 12 Board</li>
+            <li>SSC CGL &amp; SSC CHSL</li>
+            <li>NEET UG</li>
+            <li>JEE Main &amp; Advanced</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <p>© 2024 FreeExamPrep.com — All content is for educational purposes only.</p>
+        <p class="text-slate-500">Hosted on GitHub Pages · Made with ❤️ for Indian students</p>
+      </div>
+    </div>
+  </footer>
+  <!-- /FOOTER -->
+
+</body>
+</html>
