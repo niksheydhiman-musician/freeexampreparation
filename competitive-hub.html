@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="India's ultimate free competitive exam hub. UPSC, JEE, NEET, CAT, SSC, Banking, Defence, Law, Railways — free mock tests and PYQ papers. No login needed." />
+  <title>Competitive Exam Hub — FreeExamPreparation.com</title>
+
+  <!-- Tailwind CSS via Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Sora (headings) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Global font setup ── */
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2, h3, h4, h5, h6, .font-display { font-family: 'Sora', sans-serif; }
+
+    /* ── Pulse animation for "live" badge in header ── */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.4); }
+    }
+    .pulse-dot { animation: pulse-dot 2s infinite; }
+
+    /* ── Nav link with animated underline on hover ── */
+    .nav-link {
+      position: relative;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: #2dd4bf;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #fff; }
+    .nav-link.active::after { width: 100%; }
+
+    /* ── Primary teal action button ── */
+    .btn-teal {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background-color: #0d9488;
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 0.78rem;
+      padding: 0.45rem 1rem;
+      border-radius: 7px;
+      box-shadow: 0 3px 10px rgba(13,148,136,0.28);
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-teal:hover {
+      background-color: #0f766e;
+      transform: translateY(-1px);
+    }
+
+    /* ── Secondary ghost button for PDF download ── */
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background-color: transparent;
+      color: #0d9488;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 0.78rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 7px;
+      border: 1.5px solid #99f6e4;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-ghost:hover {
+      background-color: #f0fdfa;
+      border-color: #0d9488;
+      transform: translateY(-1px);
+    }
+
+    /* ── Category card hover lift ── */
+    .category-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .category-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.09);
+    }
+
+    /* ── Exam row separator ── */
+    .exam-row + .exam-row {
+      border-top: 1px solid #f1f5f9;
+    }
+
+    /* ── Shortcut pathway badge ── */
+    .pathway-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.65rem 1.25rem;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: #1e293b;
+      text-decoration: none;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+    .pathway-badge:hover {
+      border-color: #0d9488;
+      box-shadow: 0 4px 16px rgba(13,148,136,0.15);
+      transform: translateY(-2px);
+    }
+
+    /* ── Mobile menu ── */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+
+    /* ── Category icon badge colours ── */
+    .icon-navy   { background: #eff6ff; border-color: #bfdbfe; }
+    .icon-teal   { background: #f0fdfa; border-color: #99f6e4; }
+    .icon-indigo { background: #eef2ff; border-color: #c7d2fe; }
+    .icon-amber  { background: #fffbeb; border-color: #fde68a; }
+    .icon-rose   { background: #fff1f2; border-color: #fecdd3; }
+    .icon-violet { background: #f5f3ff; border-color: #ddd6fe; }
+    .icon-sky    { background: #f0f9ff; border-color: #bae6fd; }
+    .icon-green  { background: #f0fdf4; border-color: #bbf7d0; }
+    .icon-orange { background: #fff7ed; border-color: #fed7aa; }
+    .icon-pink   { background: #fdf4ff; border-color: #f5d0fe; }
+    .icon-slate  { background: #f8fafc; border-color: #e2e8f0; }
+    .icon-cyan   { background: #ecfeff; border-color: #a5f3fc; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-700 antialiased">
+
+
+  <!-- ============================================================
+       STICKY HEADER — Deep Navy, consistent with index.html
+       To duplicate this header on new pages, copy everything
+       between "STICKY HEADER" and "END HEADER" comments.
+       ============================================================ -->
+  <header class="sticky top-0 z-50 bg-slate-900 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex items-center justify-between h-16">
+
+        <!-- Brand logo -->
+        <a href="index.html" class="flex items-center gap-2.5" style="text-decoration:none;" aria-label="FreeExamPrep Home">
+          <div class="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center shrink-0">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+              <path d="M3 5h14M3 10h14M3 15h8" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-display font-bold text-white text-sm leading-none block">FreeExamPrep</span>
+            <span class="text-slate-400 text-xs leading-none">for every Indian student</span>
+          </div>
+        </a>
+
+        <!-- Desktop navigation links -->
+        <div class="hidden md:flex items-center gap-7">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="exams.html" class="nav-link">Exam Hub</a>
+          <a href="competitive-hub.html" class="nav-link active">Competitive</a>
+          <a href="ssc-mock-demo.html" class="nav-link">Mock Tests</a>
+          <a href="index.html#support" class="nav-link">Support Us</a>
+        </div>
+
+        <!-- Right: free badge + CTA -->
+        <div class="hidden md:flex items-center gap-3">
+          <span class="flex items-center gap-1.5 text-xs font-semibold text-teal-300 border border-teal-800 bg-teal-950 rounded-full px-3 py-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-400 pulse-dot inline-block"></span>
+            100% Free Resources
+          </span>
+          <a href="ssc-mock-demo.html" class="btn-teal" style="font-size:0.82rem; padding:0.5rem 1.1rem;">
+            Try Mock Test →
+          </a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false"
+          class="md:hidden flex flex-col gap-1.5 p-2 rounded-md hover:bg-slate-800 transition-colors">
+          <span class="block w-5 h-0.5 bg-slate-300" id="bar1"></span>
+          <span class="block w-5 h-0.5 bg-slate-300" id="bar2"></span>
+          <span class="block w-5 h-0.5 bg-slate-300" id="bar3"></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="md:hidden flex-col bg-slate-800 px-4 pb-4 border-t border-slate-700">
+      <a href="index.html" class="block py-2.5 text-sm text-slate-300 border-b border-slate-700" style="text-decoration:none;">Home</a>
+      <a href="exams.html" class="block py-2.5 text-sm text-slate-300 border-b border-slate-700" style="text-decoration:none;">Exam Hub</a>
+      <a href="competitive-hub.html" class="block py-2.5 text-sm text-white font-semibold border-b border-slate-700" style="text-decoration:none;">Competitive</a>
+      <a href="ssc-mock-demo.html" class="block py-2.5 text-sm text-slate-300 border-b border-slate-700" style="text-decoration:none;">Mock Tests</a>
+      <a href="index.html#support" class="block py-2.5 text-sm text-slate-300 border-b border-slate-700" style="text-decoration:none;">Support Us</a>
+      <a href="ssc-mock-demo.html" class="btn-teal mt-3 w-full justify-center">Try Mock Test →</a>
+      <p class="text-center text-xs text-teal-400 font-semibold mt-2">✓ No login · No fees · No ads</p>
+    </div>
+  </header>
+  <!-- END HEADER -->
+
+
+  <!-- ============================================================
+       PAGE HERO — Bold dark banner introducing the hub
+       ============================================================ -->
+  <section class="bg-slate-900 py-14 px-4 sm:px-6 lg:px-8"
+    style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 70%, #0c1a2e 100%);">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Breadcrumb navigation -->
+      <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6" aria-label="Breadcrumb">
+        <a href="index.html" class="hover:text-teal-400 transition-colors" style="text-decoration:none;">Home</a>
+        <span>›</span>
+        <a href="exams.html" class="hover:text-teal-400 transition-colors" style="text-decoration:none;">Exam Hub</a>
+        <span>›</span>
+        <span class="text-slate-300">Competitive Exams</span>
+      </nav>
+
+      <div class="flex flex-col lg:flex-row lg:items-end gap-8">
+
+        <!-- Left: title and subtitle -->
+        <div class="flex-1">
+          <div class="inline-flex items-center gap-2 border border-teal-700 bg-teal-950 rounded-full px-4 py-1.5 mb-5">
+            <span class="w-2 h-2 rounded-full bg-teal-400 pulse-dot"></span>
+            <span class="text-teal-300 text-xs font-semibold tracking-wide">12 Exam Categories · 500+ Resources · Always Free</span>
+          </div>
+
+          <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-4">
+            India's Ultimate
+            <span class="block mt-1"
+              style="background: linear-gradient(90deg, #2dd4bf, #34d399); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+              Competitive Exam Hub
+            </span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            100% free mock tests, official question papers, and detailed solutions for
+            <strong class="text-white font-semibold">central, state, and entrance examinations</strong>.
+            No login. No fees. No distractions.
+          </p>
+        </div>
+
+        <!-- Right: quick stat counters -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-5 shrink-0 lg:w-56">
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+            <div class="font-display text-2xl font-extrabold text-teal-400">12</div>
+            <div class="text-xs text-slate-400 mt-1">Exam Pillars</div>
+          </div>
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+            <div class="font-display text-2xl font-extrabold text-teal-400">40+</div>
+            <div class="text-xs text-slate-400 mt-1">Unique Exams</div>
+          </div>
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+            <div class="font-display text-2xl font-extrabold text-teal-400">273+</div>
+            <div class="text-xs text-slate-400 mt-1">Mock Tests</div>
+          </div>
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+            <div class="font-display text-2xl font-extrabold text-teal-400">₹0</div>
+            <div class="text-xs text-slate-400 mt-1">Cost to Access</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- END PAGE HERO -->
+
+
+  <!-- ============================================================
+       TOP ASPIRANT PATHWAYS — Fast-track shortcut badges
+       Copy this pattern to add more shortcut badges for new exams.
+       ============================================================ -->
+  <section class="bg-white border-b border-slate-200 py-6 px-4 sm:px-6 lg:px-8 sticky top-16 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="flex flex-wrap items-center gap-3">
+        <!-- Section label -->
+        <span class="text-xs font-bold text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-3 py-1.5 shrink-0">
+          ⭐ Top Aspirant Pathways
+        </span>
+
+        <!-- Shortcut badge: UPSC -->
+        <!-- To add a new badge: copy one <a class="pathway-badge"> block and update the href, emoji, and label -->
+        <a href="#pillar-civil" class="pathway-badge" aria-label="Jump to UPSC section">
+          <span>🏛️</span> UPSC
+        </a>
+
+        <!-- Shortcut badge: JEE Main -->
+        <a href="#pillar-engineering" class="pathway-badge" aria-label="Jump to JEE Main section">
+          <span>⚛️</span> JEE Main
+        </a>
+
+        <!-- Shortcut badge: NEET -->
+        <a href="#pillar-medical" class="pathway-badge" aria-label="Jump to NEET section">
+          <span>🔬</span> NEET
+        </a>
+
+        <!-- Shortcut badge: CAT -->
+        <a href="#pillar-mba" class="pathway-badge" aria-label="Jump to CAT section">
+          <span>📊</span> CAT
+        </a>
+
+        <!-- Shortcut badge: SSC CGL -->
+        <a href="#pillar-ssc" class="pathway-badge" aria-label="Jump to SSC CGL section">
+          <span>🏛️</span> SSC CGL
+        </a>
+
+        <!-- Shortcut badge: IBPS PO -->
+        <a href="#pillar-banking" class="pathway-badge" aria-label="Jump to IBPS PO section">
+          <span>🏦</span> IBPS PO
+        </a>
+
+        <!-- Scroll-to-top helper -->
+        <a href="#" class="ml-auto text-xs font-semibold text-slate-400 hover:text-teal-600 transition-colors shrink-0" style="text-decoration:none;">
+          View All 12 Pillars ↓
+        </a>
+      </div>
+
+    </div>
+  </section>
+  <!-- END TOP ASPIRANT PATHWAYS -->
+
+
+  <!-- ============================================================
+       MAIN GRID — 12 Category Pillars
+       Each pillar card follows the same structure:
+         1. Card header  (icon + title + badge)
+         2. Exam rows    (exam name + 2 CTA buttons)
+         3. Card footer  (resource count)
+       To add a new exam inside any pillar, copy one
+       <!-- EXAM ROW --> block and update the text and href values.
+       ============================================================ -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+    <!-- Intro label -->
+    <div class="text-center mb-10">
+      <p class="text-xs font-bold tracking-widest uppercase text-teal-600 mb-2">Complete Competitive Exam Library</p>
+      <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
+        All 12 Pillars of Competitive Exams
+      </h2>
+      <p class="text-slate-500 text-sm max-w-xl mx-auto">
+        Every exam category listed below contains free mock tests and downloadable PYQ papers.
+        Content is visible on-page at no cost — forever.
+      </p>
+    </div>
+
+    <!-- Responsive grid: 1 col mobile → 2 col tablet → 3 col desktop -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 1 — Civil Services & Administration
+           Anchor: #pillar-civil
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-civil" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <!-- Card header -->
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-navy flex items-center justify-center text-xl shrink-0">🏛️</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">3 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Civil Services &amp; Administration</h3>
+          <p class="text-xs text-slate-400 mt-1">UPSC · State PSCs · CAPF</p>
+        </div>
+
+        <!-- Exam rows -->
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: UPSC CSE -->
+          <!-- To replicate: copy this block, change exam name and hrefs -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">UPSC CSE (IAS / IPS / IFS)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: State PSC -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">State PSC Exams</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: UPSC CAPF -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">UPSC CAPF</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Card footer -->
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">85+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 1 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 2 — Engineering Entrance
+           Anchor: #pillar-engineering
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-engineering" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-indigo flex items-center justify-center text-xl shrink-0">⚛️</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">5 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Engineering Entrance</h3>
+          <p class="text-xs text-slate-400 mt-1">JEE · BITSAT · VITEEE · COMEDK</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: JEE Main -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">JEE Main</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: JEE Advanced -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">JEE Advanced</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: BITSAT -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">BITSAT</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: VITEEE -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">VITEEE</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: COMEDK UGET -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">COMEDK UGET</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">210+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 2 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 3 — Medical Entrance
+           Anchor: #pillar-medical
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-medical" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-teal flex items-center justify-center text-xl shrink-0">🔬</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">3 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Medical Entrance</h3>
+          <p class="text-xs text-slate-400 mt-1">NEET UG · NEET PG · INI-CET</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: NEET UG -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">NEET UG</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: NEET PG -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">NEET PG</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: INI-CET -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">INI-CET</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">240+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 3 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 4 — University Admissions
+           Anchor: #pillar-university
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-university" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-sky flex items-center justify-center text-xl shrink-0">🎓</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">2 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">University Admissions</h3>
+          <p class="text-xs text-slate-400 mt-1">CUET UG · CUET PG</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: CUET UG -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">CUET UG</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: CUET PG -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">CUET PG</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">60+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 4 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 5 — MBA & Management
+           Anchor: #pillar-mba
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-mba" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-amber flex items-center justify-center text-xl shrink-0">📊</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">5 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">MBA &amp; Management</h3>
+          <p class="text-xs text-slate-400 mt-1">CAT · XAT · CMAT · SNAP · NMAT</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: CAT -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">CAT</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: XAT -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">XAT</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: CMAT -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">CMAT</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: SNAP -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">SNAP</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: NMAT -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">NMAT</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">120+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 5 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 6 — Banking & Finance
+           Anchor: #pillar-banking
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-banking" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-green flex items-center justify-center text-xl shrink-0">🏦</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">6 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Banking &amp; Finance</h3>
+          <p class="text-xs text-slate-400 mt-1">IBPS · SBI · RBI · NABARD</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: IBPS PO -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">IBPS PO</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: IBPS Clerk -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">IBPS Clerk</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: SBI PO -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">SBI PO</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: SBI Clerk -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">SBI Clerk</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: RBI Grade B -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">RBI Grade B</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: NABARD Grade A/B -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">NABARD Grade A / B</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">200+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 6 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 7 — SSC & Central Government
+           Anchor: #pillar-ssc
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-ssc" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-navy flex items-center justify-center text-xl shrink-0">📋</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">4 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">SSC &amp; Central Government</h3>
+          <p class="text-xs text-slate-400 mt-1">CGL · CHSL · MTS · CPO</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: SSC CGL -->
+          <div class="exam-row py-3.5">
+            <div class="flex items-center gap-2 mb-2">
+              <p class="text-sm font-semibold text-slate-800">SSC CGL</p>
+              <span class="text-xs text-slate-400 bg-slate-100 rounded-full px-2 py-0.5">Graduate Level</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <a href="ssc-mock-demo.html" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: SSC CHSL -->
+          <div class="exam-row py-3.5">
+            <div class="flex items-center gap-2 mb-2">
+              <p class="text-sm font-semibold text-slate-800">SSC CHSL</p>
+              <span class="text-xs text-slate-400 bg-slate-100 rounded-full px-2 py-0.5">12th Pass</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: SSC MTS -->
+          <div class="exam-row py-3.5">
+            <div class="flex items-center gap-2 mb-2">
+              <p class="text-sm font-semibold text-slate-800">SSC MTS</p>
+              <span class="text-xs text-slate-400 bg-slate-100 rounded-full px-2 py-0.5">10th Pass</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: SSC CPO -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">SSC CPO</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">195+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 7 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 8 — Defence Exams
+           Anchor: #pillar-defence
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-defence" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-rose flex items-center justify-center text-xl shrink-0">🪖</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">4 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Defence Exams</h3>
+          <p class="text-xs text-slate-400 mt-1">NDA · CDS · AFCAT · INET</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: NDA -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">NDA (National Defence Academy)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: CDS -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">CDS (Combined Defence Services)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: AFCAT -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">AFCAT (Air Force)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: INET -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">INET (Indian Navy)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">95+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 8 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 9 — Law Entrances
+           Anchor: #pillar-law
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-law" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-violet flex items-center justify-center text-xl shrink-0">⚖️</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">2 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Law Entrances</h3>
+          <p class="text-xs text-slate-400 mt-1">CLAT · AILET</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: CLAT -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">CLAT (Common Law Admission Test)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: AILET -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">AILET (NLU Delhi)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">50+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 9 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 10 — Creative, Design & Architecture
+           Anchor: #pillar-design
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-design" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-pink flex items-center justify-center text-xl shrink-0">🎨</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">4 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Creative, Design &amp; Architecture</h3>
+          <p class="text-xs text-slate-400 mt-1">NIFT · NID · UCEED · NATA</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: NIFT -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">NIFT Entrance Exam</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: NID DAT -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">NID DAT (Design Aptitude Test)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: UCEED -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">UCEED (IIT Design)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: NATA -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">NATA (Architecture)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">70+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 10 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 11 — Indian Railways
+           Anchor: #pillar-railways
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-railways" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-orange flex items-center justify-center text-xl shrink-0">🚂</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">3 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Indian Railways</h3>
+          <p class="text-xs text-slate-400 mt-1">RRB NTPC · RRB JE · RRB ALP</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: RRB NTPC -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">RRB NTPC</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: RRB JE -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">RRB JE (Junior Engineer)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: RRB ALP -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">RRB ALP (Loco Pilot)</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">90+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 11 -->
+
+
+      <!-- ══════════════════════════════════════════════════════════
+           PILLAR 12 — Research & Teaching
+           Anchor: #pillar-research
+           ══════════════════════════════════════════════════════════ -->
+      <article id="pillar-research" class="category-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+          <div class="flex items-start justify-between mb-3">
+            <div class="w-11 h-11 rounded-xl border icon-cyan flex items-center justify-center text-xl shrink-0">🔭</div>
+            <span class="text-xs font-bold text-slate-400 border border-slate-200 bg-slate-50 rounded-full px-2.5 py-1">3 Exams</span>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Research &amp; Teaching</h3>
+          <p class="text-xs text-slate-400 mt-1">UGC NET · CSIR NET · GATE</p>
+        </div>
+
+        <div class="px-6 py-4 flex-1 space-y-0">
+
+          <!-- EXAM ROW: UGC NET -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">UGC NET</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: CSIR NET -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">CSIR NET</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+          <!-- EXAM ROW: GATE -->
+          <div class="exam-row py-3.5">
+            <p class="text-sm font-semibold text-slate-800 mb-2">GATE</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="btn-teal">📝 Start Free Mock Test</a>
+              <a href="#" download class="btn-ghost">📥 Download PYQ Papers</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs text-teal-600 font-semibold">110+ Free Resources</span>
+          <span class="text-xs text-slate-400">No login needed</span>
+        </div>
+
+      </article>
+      <!-- END PILLAR 12 -->
+
+
+    </div>
+    <!-- END 12-PILLAR GRID -->
+
+
+    <!-- ============================================================
+         SUPPORT BANNER — Non-intrusive PDF bundle prompt
+         ============================================================ -->
+    <div class="mt-14 bg-slate-900 rounded-2xl p-7 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="text-teal-400 text-xs font-bold uppercase tracking-widest mb-1">Optional · Supports Free Access</p>
+        <p class="font-display font-bold text-white text-lg sm:text-xl">
+          Want everything compiled offline? Download a PDF master bundle for ₹49–₹99.
+        </p>
+        <p class="text-slate-400 text-sm mt-1">
+          Neatly formatted. Printer-friendly. One-click download. Reading online stays free forever.
+        </p>
+      </div>
+      <a href="index.html#support" class="btn-teal shrink-0" style="font-size:0.9rem; padding:0.7rem 1.5rem;">
+        View Bundle Options →
+      </a>
+    </div>
+
+
+  </main>
+  <!-- END MAIN CONTENT -->
+
+
+  <!-- ============================================================
+       FOOTER — Identical to index.html and exams.html
+       ============================================================ -->
+  <footer class="bg-slate-900 text-slate-400 pt-14 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        <!-- Brand column -->
+        <div class="sm:col-span-2 lg:col-span-1">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                <path d="M3 5h14M3 10h14M3 15h8" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="font-display font-bold text-white text-sm">FreeExamPreparation.com</span>
+          </div>
+          <p class="text-sm leading-relaxed mb-5">
+            India's most trusted free exam prep platform. Built for students, by educators — free forever.
+          </p>
+          <div class="text-xs text-teal-400 font-semibold bg-teal-950 border border-teal-800 rounded-lg px-3 py-2 w-fit">
+            ✓ Zero paywalls. Zero logins.
+          </div>
+        </div>
+
+        <!-- Board Exams links -->
+        <div>
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-500 mb-4">Board Exams</p>
+          <a href="exams.html#class10" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">Class 10 CBSE</a>
+          <a href="exams.html#class10" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">Class 10 ICSE</a>
+          <a href="exams.html#class12" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">Class 12 Science</a>
+          <a href="exams.html#class12" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">Class 12 Commerce</a>
+        </div>
+
+        <!-- Competitive Exam links -->
+        <div>
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-500 mb-4">Competitive</p>
+          <a href="#pillar-civil" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">UPSC / Civil Services</a>
+          <a href="#pillar-ssc" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">SSC CGL / CHSL</a>
+          <a href="#pillar-banking" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">Banking / IBPS</a>
+          <a href="#pillar-medical" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">NEET</a>
+          <a href="#pillar-engineering" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">JEE Main / Advanced</a>
+        </div>
+
+        <!-- Platform links -->
+        <div>
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-500 mb-4">Platform</p>
+          <a href="index.html#support" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">Support the Platform</a>
+          <a href="#" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">About Us</a>
+          <a href="#" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">Privacy Policy</a>
+          <a href="#" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">Terms of Use</a>
+          <a href="#" class="block text-sm text-slate-400 hover:text-slate-200 mb-2 transition-colors" style="text-decoration:none;">Contact</a>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <p>© 2025 FreeExamPreparation.com — All resources free forever.</p>
+        <p>Made with ♥ for 140 crore Indians</p>
+      </div>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
+
+  <!-- ============================================================
+       MOBILE MENU TOGGLE SCRIPT
+       Identical across all pages — copy as-is for new pages.
+       ============================================================ -->
+  <script>
+    const btn = document.getElementById('hamburger-btn');
+    const menu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+
+    btn.addEventListener('click', function () {
+      const isOpen = menu.classList.contains('open');
+      if (isOpen) {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        bar1.style.transform = '';
+        bar2.style.opacity = '1';
+        bar3.style.transform = '';
+      } else {
+        menu.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        bar1.style.transform = 'translateY(8px) rotate(45deg)';
+        bar2.style.opacity = '0';
+        bar3.style.transform = 'translateY(-8px) rotate(-45deg)';
+      }
+    });
+  </script>
+
+</body>
+</html>
