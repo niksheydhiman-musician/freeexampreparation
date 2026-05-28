@@ -1,40 +1,20 @@
-# Free Exam Preparation
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-Static GitHub Pages deployment for **freeexampreparation.com**.
+# Run and deploy your AI Studio app
 
-## Deployment structure
+This contains everything you need to run your app locally.
 
-```text
-.
-├── index.html
-├── competitive-hub.html
-├── exams.html
-├── ssc-mock-demo.html
-├── README.md
-└── assets/
-```
+View your app in AI Studio: https://ai.studio/apps/d86e748b-0f68-4174-883a-109b48d2773f
 
-## What is wired already
+## Run Locally
 
-- `index.html` sends users to the competitive hub and school boards dashboard.
-- `competitive-hub.html` uses `ssc-mock-demo.html` as the live mock-test template destination.
-- Download buttons use the Cloudflare R2 placeholder format:
-  `https://YOUR_CLOUDFLARE_R2_PUBLIC_URL/placeholder-filename.pdf`
-- Heavy downloads are expected to live in Cloudflare R2, not in this repository.
+**Prerequisites:**  Node.js
 
-## Copilot-friendly authoring rules
 
-- Keep file names lowercase and use hyphens for multi-word pages.
-- Keep the Tailwind Play CDN script inside `<head>` on every HTML page.
-- Reuse semantic boundary comments such as `HEADER`, `PAGE HERO`, `MAIN CONTENT`, and `FOOTER` when creating new pages.
-- Use local `assets/` only for lightweight branding assets such as logos and favicons.
-
-## Local preview
-
-No build step is required. From the repository root you can preview locally with:
-
-```bash
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000/`.
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
