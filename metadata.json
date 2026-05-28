@@ -1,6 +1,0 @@
-{
-  "name": "Free Exam Preparation Hub",
-  "description": "Interactive competitive exam preparation portal featuring past papers and practice mock tests for UPSC, State PSC, JEE, NEET, CUET, CAT, Banking, SSC, Defence, Law, Railways, and Teaching exams.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
