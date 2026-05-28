@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Exam Preparation | 100% Free Study Resources for India</title>
+  <meta name="description" content="Free high-quality exam preparation resources for Class 10, Class 12, SSC, NEET, and JEE. No signup required. Trusted by students and teachers across India." />
+
+  <!-- Tailwind CSS via Play CDN — required on every page -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Playfair Display (headings) + Nunito (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Global font overrides ─────────────────────────────────── */
+    body        { font-family: 'Nunito', sans-serif; }
+    .font-display { font-family: 'Playfair Display', serif; }
+
+    /* ─── Subtle hero grain texture ─────────────────────────────── */
+    .hero-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #134e4a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* ─── Card hover lift ────────────────────────────────────────── */
+    .card-lift {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    /* ─── Sticky header shadow on scroll (pure CSS trick) ───────── */
+    .sticky-header { position: sticky; top: 0; z-index: 50; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-700 antialiased">
+
+  <!-- ════════════════════════════════════════════════════════════
+       HEADER — Deep Navy, sticky, premium
+  ════════════════════════════════════════════════════════════ -->
+  <header class="sticky-header bg-slate-900 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+
+      <!-- Logo / Brand -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <!-- Icon badge -->
+        <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-500 text-white text-lg font-bold select-none">F</span>
+        <span class="text-white font-display text-lg leading-tight">
+          Free<span class="text-teal-400">Exam</span>Prep
+        </span>
+      </a>
+
+      <!-- Nav links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-300">
+        <a href="index.html"       class="hover:text-teal-400 transition-colors">Home</a>
+        <a href="exams.html"       class="hover:text-teal-400 transition-colors">Exam Repository</a>
+        <a href="ssc-mock-demo.html" class="hover:text-teal-400 transition-colors">Mock Tests</a>
+      </nav>
+
+      <!-- Trust badge -->
+      <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-teal-300 bg-teal-900/50 border border-teal-700 rounded-full px-3 py-1">
+        ✓ 100% Free Resources
+      </span>
+
+      <!-- Mobile menu placeholder (hamburger icon) -->
+      <button class="md:hidden text-slate-300 hover:text-white focus:outline-none" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <!-- /HEADER -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       HERO SECTION
+  ════════════════════════════════════════════════════════════ -->
+  <section class="hero-bg py-24 px-4 sm:px-6 lg:px-8 text-center relative">
+    <div class="max-w-4xl mx-auto relative z-10">
+
+      <!-- Sub-badge -->
+      <span class="inline-block text-xs font-bold tracking-widest uppercase text-teal-300 bg-teal-900/60 border border-teal-700 rounded-full px-4 py-1.5 mb-6">
+        Trusted by Students &amp; Teachers Across India
+      </span>
+
+      <!-- Main headline -->
+      <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+        Premium Exam Preparation.<br />
+        <span class="text-teal-400">Completely Free. Forever.</span>
+      </h1>
+
+      <!-- Sub-headline -->
+      <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Access high-quality mock tests, previous year papers, and step-by-step solutions for <strong class="text-white">Class 10, Class 12 Boards, SSC CGL, NEET &amp; JEE</strong> — with no signup, no paywall, no tricks.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="exams.html"
+           class="inline-flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold text-base px-8 py-4 rounded-xl shadow-lg transition-all duration-200 hover:shadow-teal-500/40 hover:shadow-xl">
+          📚 Browse All Resources
+        </a>
+        <a href="ssc-mock-demo.html"
+           class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-base px-8 py-4 rounded-xl border border-white/20 transition-all duration-200">
+          🧪 Try a Mock Test
+        </a>
+      </div>
+
+      <!-- Social proof strip -->
+      <div class="mt-14 flex flex-wrap justify-center gap-8 text-slate-400 text-sm">
+        <div class="flex flex-col items-center">
+          <span class="text-2xl font-bold text-white">500+</span>
+          <span>Practice Questions</span>
+        </div>
+        <div class="w-px bg-slate-700 hidden sm:block"></div>
+        <div class="flex flex-col items-center">
+          <span class="text-2xl font-bold text-white">10+</span>
+          <span>Exam Categories</span>
+        </div>
+        <div class="w-px bg-slate-700 hidden sm:block"></div>
+        <div class="flex flex-col items-center">
+          <span class="text-2xl font-bold text-white">₹0</span>
+          <span>Cost to Access</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /HERO -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       CATEGORY GRID
+  ════════════════════════════════════════════════════════════ -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section header -->
+      <div class="text-center mb-14">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mb-3">Choose Your Exam Category</h2>
+        <p class="text-slate-500 text-lg max-w-xl mx-auto">Every resource is organised by board and stream so you spend time studying, not searching.</p>
+      </div>
+
+      <!-- 3-column grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- ── Card 1: Class 10 ───────────────────────────── -->
+        <a href="exams.html#class10" class="card-lift block bg-white rounded-2xl shadow-md border border-slate-100 p-8 group">
+          <div class="flex items-center justify-center w-14 h-14 rounded-xl bg-indigo-50 text-3xl mb-6">🏫</div>
+          <h3 class="font-display text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-700 transition-colors">Class 10 Board Prep</h3>
+          <p class="text-slate-500 leading-relaxed mb-6">CBSE &amp; State Board mock tests, sample papers, and concept notes for Science, Maths, Social Science, and English.</p>
+          <ul class="space-y-2 text-sm text-slate-600 mb-8">
+            <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> Previous Year Papers (2019–2024)</li>
+            <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> Chapter-wise Practice Sets</li>
+            <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> Step-by-step Solutions</li>
+          </ul>
+          <span class="inline-flex items-center gap-1 text-sm font-bold text-teal-600 group-hover:gap-3 transition-all">
+            View Resources →
+          </span>
+        </a>
+
+        <!-- ── Card 2: Class 12 ───────────────────────────── -->
+        <a href="exams.html#class12" class="card-lift block bg-white rounded-2xl shadow-md border border-slate-100 p-8 group">
+          <div class="flex items-center justify-center w-14 h-14 rounded-xl bg-teal-50 text-3xl mb-6">🎓</div>
+          <h3 class="font-display text-2xl font-bold text-slate-900 mb-3 group-hover:text-teal-700 transition-colors">Class 12 Board Prep</h3>
+          <p class="text-slate-500 leading-relaxed mb-6">CBSE Class 12 board exam material covering Science, Commerce, and Humanities streams — structured for last-minute and long-term prep.</p>
+          <ul class="space-y-2 text-sm text-slate-600 mb-8">
+            <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> Physics, Chemistry, Maths, Bio</li>
+            <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> Accountancy &amp; Economics Papers</li>
+            <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> English &amp; Political Science</li>
+          </ul>
+          <span class="inline-flex items-center gap-1 text-sm font-bold text-teal-600 group-hover:gap-3 transition-all">
+            View Resources →
+          </span>
+        </a>
+
+        <!-- ── Card 3: Competitive ────────────────────────── -->
+        <a href="exams.html#competitive" class="card-lift block bg-white rounded-2xl shadow-md border border-slate-100 p-8 group">
+          <div class="flex items-center justify-center w-14 h-14 rounded-xl bg-amber-50 text-3xl mb-6">🏆</div>
+          <h3 class="font-display text-2xl font-bold text-slate-900 mb-3 group-hover:text-amber-700 transition-colors">Competitive Exams</h3>
+          <p class="text-slate-500 leading-relaxed mb-6">Curated practice sets for SSC CGL, SSC CHSL, NEET, and JEE — the exams that shape careers and demand serious, structured practice.</p>
+          <ul class="space-y-2 text-sm text-slate-600 mb-8">
+            <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> SSC CGL &amp; CHSL Tier I &amp; II</li>
+            <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> NEET Biology, Physics, Chemistry</li>
+            <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> JEE Main &amp; Advanced Practice</li>
+          </ul>
+          <span class="inline-flex items-center gap-1 text-sm font-bold text-teal-600 group-hover:gap-3 transition-all">
+            View Resources →
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+  <!-- /CATEGORY GRID -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       HOW IT WORKS — Simple 3-step strip
+  ════════════════════════════════════════════════════════════ -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-100">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl font-bold text-slate-900">How It Works</h2>
+        <p class="text-slate-500 mt-2">No account, no payment, no friction. Just learning.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+        <div>
+          <div class="text-4xl mb-4">🔍</div>
+          <h3 class="font-bold text-slate-900 text-lg mb-2">1. Pick Your Exam</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Browse our repository by class or exam type and find exactly what you need.</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-4">📖</div>
+          <h3 class="font-bold text-slate-900 text-lg mb-2">2. Study Online</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Read questions directly in the browser. Click to reveal full solutions step-by-step.</p>
+        </div>
+        <div>
+          <div class="text-4xl mb-4">📥</div>
+          <h3 class="font-bold text-slate-900 text-lg mb-2">3. Download (Optional)</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">Get the compiled PDF bundle for ₹49 to support hosting costs and study offline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /HOW IT WORKS -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       SUPPORT THE SERVER — Transparent, honest, non-pushy
+  ════════════════════════════════════════════════════════════ -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-md border border-slate-100 p-10 text-center">
+
+      <!-- Icon -->
+      <div class="flex items-center justify-center w-16 h-16 bg-amber-50 rounded-2xl text-3xl mx-auto mb-6">☕</div>
+
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+        Support the Server (100% Optional)
+      </h2>
+
+      <p class="text-slate-600 leading-relaxed mb-4">
+        Every single question, solution, and mock test on this website is <strong class="text-slate-900">free to access forever</strong> — no login, no hidden fees. We believe quality education should be accessible to every student in India.
+      </p>
+
+      <p class="text-slate-600 leading-relaxed mb-8">
+        If you find the platform helpful and want to contribute, you can optionally purchase our <strong class="text-slate-900">Master PDF Bundle</strong> — a single compiled ZIP with all practice papers neatly organised — for a one-time fee of <strong class="text-slate-900">₹49</strong>. This directly covers our GitHub Pages hosting, domain renewal, and content creation time.
+      </p>
+
+      <!-- What's included -->
+      <div class="bg-slate-50 rounded-xl p-6 text-left mb-8 border border-slate-100">
+        <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wider mb-4">What's Inside the ₹49 PDF Bundle</h3>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> All Class 10 Board Papers (2019–2024) — CBSE &amp; State</li>
+          <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> All Class 12 Board Papers with Solutions</li>
+          <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> 50 SSC CGL Practice Sets (Tier I &amp; II)</li>
+          <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> NEET &amp; JEE Chapter-wise Practice Sets</li>
+          <li class="flex items-center gap-2"><span class="text-teal-500 font-bold">✓</span> Nicely formatted, printer-friendly PDFs</li>
+        </ul>
+      </div>
+
+      <!-- CTA — Teal accent for action -->
+      <a href="#"
+         class="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-500 text-white font-bold text-base px-10 py-4 rounded-xl shadow-md transition-all duration-200">
+        📥 Get the Master PDF Bundle — ₹49
+      </a>
+
+      <p class="text-xs text-slate-400 mt-4">
+        Digital delivery via email. Secure payment via Razorpay / UPI. No subscription.
+      </p>
+    </div>
+  </section>
+  <!-- /SUPPORT THE SERVER -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       TESTIMONIALS — Social proof for principals and parents
+  ════════════════════════════════════════════════════════════ -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-100">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl font-bold text-slate-900">What Teachers &amp; Students Say</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Testimonial 1 -->
+        <div class="bg-slate-50 rounded-2xl p-7 border border-slate-100">
+          <p class="text-slate-600 leading-relaxed mb-5 italic">"I shared the SSC CGL mock test page with my entire coaching batch. The step-by-step solutions are exactly what my students needed. Completely free — unbelievable."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center font-bold text-indigo-700">R</div>
+            <div>
+              <p class="font-semibold text-slate-900 text-sm">Ramesh Gupta</p>
+              <p class="text-slate-400 text-xs">SSC Coaching Teacher, Delhi</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-slate-50 rounded-2xl p-7 border border-slate-100">
+          <p class="text-slate-600 leading-relaxed mb-5 italic">"My daughter used the NEET practice questions for 3 months. The accordion solutions saved so much time. She scored 680 this year!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center font-bold text-teal-700">P</div>
+            <div>
+              <p class="font-semibold text-slate-900 text-sm">Priya Sharma</p>
+              <p class="text-xs text-slate-400">Parent, Bengaluru</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-slate-50 rounded-2xl p-7 border border-slate-100">
+          <p class="text-slate-600 leading-relaxed mb-5 italic">"As a school principal, I recommended this to our entire Class 10 batch before boards. Clean, trustworthy, and genuinely helpful. No pop-ups, no spam."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center font-bold text-amber-700">A</div>
+            <div>
+              <p class="font-semibold text-slate-900 text-sm">Dr. Anita Mehta</p>
+              <p class="text-xs text-slate-400">Principal, Kendriya Vidyalaya, Pune</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- /TESTIMONIALS -->
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════════ -->
+  <footer class="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+
+        <!-- Brand column -->
+        <div>
+          <a href="index.html" class="flex items-center gap-3 mb-4">
+            <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-500 text-white text-lg font-bold">F</span>
+            <span class="text-white font-display text-lg">Free<span class="text-teal-400">Exam</span>Prep</span>
+          </a>
+          <p class="text-sm leading-relaxed">Free, high-quality exam resources for every student in India. No signup. No paywall. Just learning.</p>
+        </div>
+
+        <!-- Quick links -->
+        <div>
+          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-teal-400 transition-colors">Home</a></li>
+            <li><a href="exams.html" class="hover:text-teal-400 transition-colors">Exam Repository</a></li>
+            <li><a href="ssc-mock-demo.html" class="hover:text-teal-400 transition-colors">SSC Mock Test Demo</a></li>
+          </ul>
+        </div>
+
+        <!-- Exam categories -->
+        <div>
+          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Exams Covered</h4>
+          <ul class="space-y-2 text-sm">
+            <li>CBSE Class 10 Board</li>
+            <li>CBSE Class 12 Board</li>
+            <li>SSC CGL &amp; SSC CHSL</li>
+            <li>NEET UG</li>
+            <li>JEE Main &amp; Advanced</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <p>© 2024 FreeExamPrep.com — All content is for educational purposes only.</p>
+        <p class="text-slate-500">Hosted on GitHub Pages · Made with ❤️ for Indian students</p>
+      </div>
+    </div>
+  </footer>
+  <!-- /FOOTER -->
+
+</body>
+</html>
