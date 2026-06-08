@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative, Design & Architecture Hub | Free Mock Tests & PYQs</title>
+  <meta name="description" content="Free Mock Tests and Solved 10-Year PYQs for NIFT, NID DAT, UCEED, and NATA. No login required. Start practicing now." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── CSS Variables ──────────────────────────────────────────── */
+    :root {
+      --color-bg:           #0e1117;
+      --color-surface:      #161b27;
+      --color-surface-2:    #1e2535;
+      --color-border:       #2a3347;
+      --color-border-light: #33405a;
+
+      --color-mint:         #3dffc0;
+      --color-mint-dark:    #00d99a;
+      --color-mint-glow:    rgba(61, 255, 192, 0.18);
+      --color-mint-subtle:  rgba(61, 255, 192, 0.08);
+
+      --color-text-primary:   #eef2ff;
+      --color-text-secondary: #8b9cc8;
+      --color-text-muted:     #4f607f;
+
+      --color-accent-rose:    #ff6b9d;
+      --color-accent-amber:   #ffbe3d;
+      --color-accent-sky:     #4dc8ff;
+      --color-accent-violet:  #b57bff;
+
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --radius-sm:  6px;
+      --radius-md:  12px;
+      --radius-lg:  18px;
+      --radius-xl:  24px;
+
+      --shadow-card: 0 4px 32px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.04) inset;
+      --shadow-glow: 0 0 40px rgba(61, 255, 192, 0.12);
+
+      --nav-h: 68px;
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── Reset & Base ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── Sticky Navigation ──────────────────────────────────────── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(14, 17, 23, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--color-text-primary);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .nav-logo-icon {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--color-mint), #00b87a);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--color-text-primary);
+      background: var(--color-surface-2);
+    }
+
+    .nav-links a.active {
+      color: var(--color-mint);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-nav-ghost {
+      padding: 8px 16px;
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      background: transparent;
+      cursor: pointer;
+      transition: border-color var(--transition), color var(--transition);
+    }
+
+    .btn-nav-ghost:hover {
+      border-color: var(--color-mint);
+      color: var(--color-mint);
+    }
+
+    .btn-nav-primary {
+      padding: 8px 18px;
+      background: var(--color-mint);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0a1a12;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-nav-primary:hover {
+      background: var(--color-mint-dark);
+      transform: translateY(-1px);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text-secondary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ─── Hero Banner ────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      padding: 80px 24px 72px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% -10%, rgba(61, 255, 192, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 60%, rgba(77, 200, 255, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 30% 30% at 20% 70%, rgba(181, 123, 255, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* subtle grid texture */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--color-mint-subtle);
+      border: 1px solid rgba(61, 255, 192, 0.25);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--color-mint);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-mint);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--color-text-primary);
+      margin-bottom: 20px;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--color-mint) 0%, #4dc8ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--color-text-secondary);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+    }
+
+    .hero-pill .pill-icon { font-size: 14px; }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .hero-stat {
+      flex: 1;
+      min-width: 120px;
+      padding: 20px 16px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-stat + .hero-stat::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: var(--color-border);
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--color-mint);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+
+    /* ─── Section Layout ─────────────────────────────────────────── */
+    .section {
+      padding: 16px 24px 72px;
+      flex: 1;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-mint);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.55rem;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+    }
+
+    .section-count {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+      padding-bottom: 2px;
+    }
+
+    /* ─── Category Cards Grid ────────────────────────────────────── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr));
+      gap: 20px;
+    }
+
+    /* ─── Category Card ──────────────────────────────────────────── */
+    .category-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .category-card:hover {
+      border-color: var(--color-border-light);
+      box-shadow: var(--shadow-card), var(--shadow-glow);
+      transform: translateY(-2px);
+    }
+
+    /* Card header */
+    .card-header {
+      padding: 22px 24px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      border-bottom: 1px solid var(--color-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* coloured top-edge accent bar */
+    .card-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .card--nift .card-header::before  { background: linear-gradient(90deg, #ff6b9d, #ff9abe); }
+    .card--nid  .card-header::before  { background: linear-gradient(90deg, var(--color-accent-sky), #7ee8ff); }
+    .card--uceed .card-header::before { background: linear-gradient(90deg, var(--color-accent-violet), #d0a9ff); }
+    .card--nata .card-header::before  { background: linear-gradient(90deg, var(--color-accent-amber), #ffe08a); }
+
+    .card-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .card--nift  .card-icon-wrap { background: rgba(255, 107, 157, 0.14); }
+    .card--nid   .card-icon-wrap { background: rgba(77, 200, 255, 0.14); }
+    .card--uceed .card-icon-wrap { background: rgba(181, 123, 255, 0.14); }
+    .card--nata  .card-icon-wrap { background: rgba(255, 190, 61, 0.14); }
+
+    .card-meta { flex: 1; min-width: 0; }
+
+    .card-exam-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.12rem;
+      letter-spacing: -0.01em;
+      color: var(--color-text-primary);
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-exam-full {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    .card-badge {
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      align-self: flex-start;
+      margin-top: 2px;
+    }
+
+    .card--nift  .card-badge { background: rgba(255,107,157,0.15); color: #ff8ab8; }
+    .card--nid   .card-badge { background: rgba(77,200,255,0.15);  color: #7dd8ff; }
+    .card--uceed .card-badge { background: rgba(181,123,255,0.15); color: #c9a2ff; }
+    .card--nata  .card-badge { background: rgba(255,190,61,0.15);  color: #ffd06b; }
+
+    /* Card body */
+    .card-body {
+      padding: 8px 0;
+      flex: 1;
+    }
+
+    /* Subject Row */
+    .subject-row {
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--color-border);
+      transition: background var(--transition);
+    }
+
+    .subject-row:last-child { border-bottom: none; }
+
+    .subject-row:hover { background: rgba(255,255,255,0.025); }
+
+    .subject-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .subject-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .card--nift  .subject-dot { background: #ff6b9d; }
+    .card--nid   .subject-dot { background: var(--color-accent-sky); }
+    .card--uceed .subject-dot { background: var(--color-accent-violet); }
+    .card--nata  .subject-dot { background: var(--color-accent-amber); }
+
+    .subject-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Action Buttons */
+    .subject-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    /* ── PRIMARY: Mint Green "Start Mock Test" ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--color-mint);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #081410;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      line-height: 1;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-mint-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(61, 255, 192, 0.3);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    /* ── GHOST: "Download PYQ" ── */
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: transparent;
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: border-color var(--transition), color var(--transition), background var(--transition);
+      line-height: 1;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--color-mint);
+      color: var(--color-mint);
+      background: var(--color-mint-subtle);
+    }
+
+    /* Card footer */
+    .card-footer {
+      padding: 14px 24px;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-footer-note {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .card-footer-note .check-icon { color: var(--color-mint); font-size: 13px; }
+
+    .card-footer-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text-muted);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 3px 8px;
+    }
+
+    /* ─── Info Strip ─────────────────────────────────────────────── */
+    .info-strip {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0 24px;
+      margin-bottom: 0;
+    }
+
+    .info-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 20px 28px;
+      position: relative;
+    }
+
+    .info-item + .info-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 25%;
+      height: 50%;
+      width: 1px;
+      background: var(--color-border);
+    }
+
+    .info-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--color-mint-subtle);
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .info-text-main {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+    }
+
+    .info-text-sub {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: 40px 24px 28px;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 24px;
+    }
+
+    .footer-brand .nav-logo { margin-bottom: 10px; }
+
+    .footer-brand p {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      max-width: 260px;
+      line-height: 1.6;
+    }
+
+    .footer-links-group h4 {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-bottom: 12px;
+    }
+
+    .footer-links-group ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links-group a {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      transition: color var(--transition);
+    }
+
+    .footer-links-group a:hover { color: var(--color-mint); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+    }
+
+    .footer-copy span { color: var(--color-mint); }
+
+    .footer-legal {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-legal a {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      transition: color var(--transition);
+    }
+
+    .footer-legal a:hover { color: var(--color-text-secondary); }
+
+    /* ─── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-cta { display: none; }
+
+      .nav-hamburger { display: flex; }
+
+      .hero { padding: 56px 20px 56px; }
+      .hero-stats { flex-direction: row; }
+      .hero-stat { min-width: 0; }
+      .hero-stat + .hero-stat::before { display: none; }
+
+      .section { padding: 12px 16px 56px; }
+
+      .subject-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 18px;
+      }
+
+      .subject-actions {
+        width: 100%;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        flex: 1;
+        justify-content: center;
+        padding: 9px 12px;
+      }
+
+      .card-header { padding: 18px 18px 14px; }
+      .card-footer { padding: 12px 18px; flex-wrap: wrap; }
+
+      .info-item { padding: 16px 18px; }
+      .info-item + .info-item::before { display: none; }
+      .info-strip-inner { flex-direction: column; }
+
+      .footer-top { flex-direction: column; gap: 24px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+      .section-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 1.75rem; }
+      .hero-pills { gap: 7px; }
+      .hero-pill { font-size: 0.76rem; padding: 6px 12px; }
+      .card-exam-name { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════ NAVIGATION -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">✦</div>
+        ExamPrep Hub
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="competitive-hub.html">Competitive</a></li>
+        <li><a href="design-architecture-hub.html" class="active">Design &amp; Architecture</a></li>
+        <li><a href="engineering-hub.html">Engineering</a></li>
+        <li><a href="medical-hub.html">Medical</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <button class="btn-nav-ghost" type="button">All Exams</button>
+        <button class="btn-nav-primary" type="button">Free Practice</button>
+      </div>
+
+      <div class="nav-hamburger" role="button" aria-label="Open menu" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════ HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Creative &amp; Architecture Arena
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        Master <span class="highlight">Design &amp; Architecture</span><br />
+        Entrance Exams for Free
+      </h1>
+
+      <p class="hero-subtitle">
+        Practice with full-length Mock Tests and solved 10-Year PYQs for NIFT,
+        NID DAT, UCEED, and NATA — completely free, no login or signup required.
+      </p>
+
+      <div class="hero-pills">
+        <div class="hero-pill"><span class="pill-icon">🆓</span> 100% Free Access</div>
+        <div class="hero-pill"><span class="pill-icon">🔓</span> No Login Required</div>
+        <div class="hero-pill"><span class="pill-icon">📋</span> 10-Year Solved PYQs</div>
+        <div class="hero-pill"><span class="pill-icon">⏱️</span> Timed Mock Tests</div>
+      </div>
+
+      <div class="hero-stats" role="list" aria-label="Key statistics">
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-label">Exams Covered</div>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Years of PYQs</div>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-num">0₹</div>
+          <div class="hero-stat-label">Cost to You</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ INFO STRIP -->
+  <div class="info-strip" role="complementary" aria-label="Key features">
+    <div class="info-strip-inner">
+
+      <div class="info-item">
+        <div class="info-icon">🎨</div>
+        <div>
+          <div class="info-text-main">Creative Ability Tests</div>
+          <div class="info-text-sub">Drawing, ideation &amp; visual thinking</div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📐</div>
+        <div>
+          <div class="info-text-main">Design Aptitude</div>
+          <div class="info-text-sub">Spatial reasoning &amp; design principles</div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">🏛️</div>
+        <div>
+          <div class="info-text-main">Architecture Aptitude</div>
+          <div class="info-text-sub">Drawing, maths &amp; aesthetic sensitivity</div>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📊</div>
+        <div>
+          <div class="info-text-main">Instant Result Analysis</div>
+          <div class="info-text-sub">Detailed score breakdowns after every test</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ MAIN SECTION -->
+  <main class="section" id="exams" aria-label="Exam cards">
+    <div class="section-inner">
+
+      <div class="section-header">
+        <div>
+          <div class="section-label">Available Exams</div>
+          <h2 class="section-title">Choose Your Entrance Exam</h2>
+        </div>
+        <div class="section-count">4 exams &nbsp;·&nbsp; 4 subjects</div>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- ─────────────── CARD 1: NIFT ─────────────── -->
+        <article class="category-card card--nift" aria-label="NIFT exam resources">
+          <div class="card-header">
+            <div class="card-icon-wrap">👗</div>
+            <div class="card-meta">
+              <div class="card-exam-name">NIFT</div>
+              <div class="card-exam-full">National Institute of Fashion Technology</div>
+            </div>
+            <div class="card-badge">Fashion Design</div>
+          </div>
+
+          <div class="card-body">
+            <div class="subject-row">
+              <div class="subject-info">
+                <div class="subject-dot"></div>
+                <span class="subject-name">NIFT Creative Ability Test (CAT)</span>
+              </div>
+              <div class="subject-actions">
+                <a href="nift-creative-ability-mock.html" class="btn-primary">
+                  📝 Start Mock Test
+                </a>
+                <a href="nift-creative-ability-pyq.html" class="btn-ghost">
+                  📥 Download PYQ
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <div class="card-footer-note">
+              <span class="check-icon">✓</span>
+              Free &amp; no login required
+            </div>
+            <div class="card-footer-tag">10 Years PYQ</div>
+          </div>
+        </article>
+
+        <!-- ─────────────── CARD 2: NID DAT ─────────────── -->
+        <article class="category-card card--nid" aria-label="NID DAT exam resources">
+          <div class="card-header">
+            <div class="card-icon-wrap">🖌️</div>
+            <div class="card-meta">
+              <div class="card-exam-name">NID DAT</div>
+              <div class="card-exam-full">Design Aptitude Test — National Institute of Design</div>
+            </div>
+            <div class="card-badge">Design Aptitude</div>
+          </div>
+
+          <div class="card-body">
+            <div class="subject-row">
+              <div class="subject-info">
+                <div class="subject-dot"></div>
+                <span class="subject-name">NID DAT Design Principles</span>
+              </div>
+              <div class="subject-actions">
+                <a href="nid-dat-design-principles-mock.html" class="btn-primary">
+                  📝 Start Mock Test
+                </a>
+                <a href="nid-dat-design-principles-pyq.html" class="btn-ghost">
+                  📥 Download PYQ
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <div class="card-footer-note">
+              <span class="check-icon">✓</span>
+              Free &amp; no login required
+            </div>
+            <div class="card-footer-tag">10 Years PYQ</div>
+          </div>
+        </article>
+
+        <!-- ─────────────── CARD 3: UCEED ─────────────── -->
+        <article class="category-card card--uceed" aria-label="UCEED exam resources">
+          <div class="card-header">
+            <div class="card-icon-wrap">🔭</div>
+            <div class="card-meta">
+              <div class="card-exam-name">UCEED</div>
+              <div class="card-exam-full">Undergraduate Common Entrance Exam for Design — IITs</div>
+            </div>
+            <div class="card-badge">IIT Design</div>
+          </div>
+
+          <div class="card-body">
+            <div class="subject-row">
+              <div class="subject-info">
+                <div class="subject-dot"></div>
+                <span class="subject-name">UCEED Visualization &amp; Spatial Ability</span>
+              </div>
+              <div class="subject-actions">
+                <a href="uceed-visualization-spatial-mock.html" class="btn-primary">
+                  📝 Start Mock Test
+                </a>
+                <a href="uceed-visualization-spatial-pyq.html" class="btn-ghost">
+                  📥 Download PYQ
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <div class="card-footer-note">
+              <span class="check-icon">✓</span>
+              Free &amp; no login required
+            </div>
+            <div class="card-footer-tag">10 Years PYQ</div>
+          </div>
+        </article>
+
+        <!-- ─────────────── CARD 4: NATA ─────────────── -->
+        <article class="category-card card--nata" aria-label="NATA exam resources">
+          <div class="card-header">
+            <div class="card-icon-wrap">🏛️</div>
+            <div class="card-meta">
+              <div class="card-exam-name">NATA</div>
+              <div class="card-exam-full">National Aptitude Test in Architecture</div>
+            </div>
+            <div class="card-badge">Architecture</div>
+          </div>
+
+          <div class="card-body">
+            <div class="subject-row">
+              <div class="subject-info">
+                <div class="subject-dot"></div>
+                <span class="subject-name">NATA Architecture &amp; Drawing</span>
+              </div>
+              <div class="subject-actions">
+                <a href="nata-architecture-drawing-mock.html" class="btn-primary">
+                  📝 Start Mock Test
+                </a>
+                <a href="nata-architecture-drawing-pyq.html" class="btn-ghost">
+                  📥 Download PYQ
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <div class="card-footer-note">
+              <span class="check-icon">✓</span>
+              Free &amp; no login required
+            </div>
+            <div class="card-footer-tag">10 Years PYQ</div>
+          </div>
+        </article>
+
+      </div><!-- /.cards-grid -->
+    </div><!-- /.section-inner -->
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════ FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:10px;">
+            <div class="nav-logo-icon">✦</div>
+            ExamPrep Hub
+          </div>
+          <p>Free mock tests and solved PYQs for every major Indian entrance exam. No login. No fees. Just practice.</p>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Design Exams</h4>
+          <ul>
+            <li><a href="nift-creative-ability-mock.html">NIFT Mock Test</a></li>
+            <li><a href="nid-dat-design-principles-mock.html">NID DAT Mock Test</a></li>
+            <li><a href="uceed-visualization-spatial-mock.html">UCEED Mock Test</a></li>
+            <li><a href="nata-architecture-drawing-mock.html">NATA Mock Test</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Download PYQs</h4>
+          <ul>
+            <li><a href="nift-creative-ability-pyq.html">NIFT PYQ Papers</a></li>
+            <li><a href="nid-dat-design-principles-pyq.html">NID DAT PYQ Papers</a></li>
+            <li><a href="uceed-visualization-spatial-pyq.html">UCEED PYQ Papers</a></li>
+            <li><a href="nata-architecture-drawing-pyq.html">NATA PYQ Papers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Other Hubs</h4>
+          <ul>
+            <li><a href="competitive-hub.html">Competitive Hub</a></li>
+            <li><a href="engineering-hub.html">Engineering Hub</a></li>
+            <li><a href="medical-hub.html">Medical Hub</a></li>
+            <li><a href="index.html">All Exams</a></li>
+          </ul>
+        </div>
+
+      </div><!-- /.footer-top -->
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2025 ExamPrep Hub · Built for students, by students ·
+          <span>100% Free Forever</span>
+        </div>
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+
+    </div><!-- /.footer-inner -->
+  </footer>
+
+</body>
+</html>
